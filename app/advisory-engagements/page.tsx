@@ -231,11 +231,12 @@ export default function AdvisoryEngagementsPage() {
                 The engagement formats below describe how we can work together, depending on your objectives,
                 timeline, and the level of support required.
               </p>
-            /* <p className="text-[var(--secondary)] text-lg max-w-xl mb-16">
-                Most engagements follow one of four formats. Scope and duration are always
-                agreed upfront — so there are no surprises on either side.
-              </p>
-            */
+              
+            // <p className="text-[var(--secondary)] text-lg max-w-xl mb-16">
+            //    Most engagements follow one of four formats. Scope and duration are always
+            //    agreed upfront — so there are no surprises on either side.
+            //  </p>
+            
             </Reveal>
 
             <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
