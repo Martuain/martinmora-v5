@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Advisory Engagements",
   description:
-    "Four engagement models: Strategic Assessment & Recommendations, Innovation & Product Strategy, Transformation Guidance, and Fractional Leadership.",
+    "Four engagement models: Strategic Assessment & Recommendations, Innovation & Product Strategy, Transformation Guidance, and Embedded Leadership Support.",
   alternates: { canonical: `${siteConfig.url}/advisory-engagements` },
 };
 
@@ -93,7 +93,7 @@ const engagements = [
   {
     id: "fractional",
     number: "04",
-    title: "Fractional Leadership",
+    title: "Embedded Leadership Support",
     tagline: "Senior leadership capacity, without the full-time hire.",
     description:
       "For organizations that need experienced product or transformation leadership on an interim or part-time basis. I embed as a senior member of your leadership team — with real accountability, not just advisory distance. Appropriate for leadership gaps, scaling phases, or complex programs that need direct ownership.",
@@ -226,10 +226,16 @@ export default function AdvisoryEngagementsPage() {
               >
                 The shape of a typical engagement.
               </h2>
-              <p className="text-[var(--secondary)] text-lg max-w-xl mb-16">
+              <p className="max-w-3xl text-muted-foreground">
+                The advisory areas above describe the types of challenges I help organizations address.
+                The engagement formats below describe how we can work together, depending on your objectives,
+                timeline, and the level of support required.
+              </p>
+            /* <p className="text-[var(--secondary)] text-lg max-w-xl mb-16">
                 Most engagements follow one of four formats. Scope and duration are always
                 agreed upfront — so there are no surprises on either side.
               </p>
+            */
             </Reveal>
 
             <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
@@ -251,7 +257,7 @@ export default function AdvisoryEngagementsPage() {
                   accent: "#6366f1",
                 },
                 {
-                  format: "Fractional Leadership",
+                  format: "Embedded Leadership Support",
                   duration: "Monthly retainer",
                   description:
                     "Ongoing embedded leadership — part of your team on a defined part-time basis. Real accountability, active participation in key decisions, and direct access when it matters.",
