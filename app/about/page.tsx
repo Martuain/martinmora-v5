@@ -184,7 +184,7 @@ export default function AboutPage() {
                       Geography
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      {["Europe", "Latin America", "Spain", "UK (Remote)", "Argentina"].map((geo) => (
+                      {["Europe", "Latin America", "Spain", "UK", "Argentina"].map((geo) => (
                         <span key={geo} className="text-xs px-3 py-1.5 rounded-full border border-[var(--border)] text-[var(--secondary)]">
                           {geo}
                         </span>
