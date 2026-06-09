@@ -1,4 +1,4 @@
-# Martin Mora Website v2
+# Martin Mora Website v5
 # AIM: Independent Advisor for Product, Innovation, Payments & Transformation (Product & Innovation Advisory, Payments & Fintech Strategy, Transformation Guidance, Fractional Leadership), while maintaining a premium and strategic profile.
 
 Production-ready Next.js website — complete rebuild based on the ChatGPT-designed proposal.
