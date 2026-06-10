@@ -1,3 +1,9 @@
+export type CaseStudyMetric = {
+  value: string;
+  label: string;
+  detail: string;
+};
+
 export type CaseStudy = {
   slug: string;
   title: string;
@@ -7,11 +13,16 @@ export type CaseStudy = {
   industry: string;
   type: "featured" | "secondary";
   challenge: string;
+  context?: string; // extended narrative before the approach
   approach: string[];
   outcomes: string[];
   lessons: string[];
   tags: string[];
   color: string;
+  // Optional enrichment — used for deep-dive case studies
+  keyMetrics?: CaseStudyMetric[];
+  howItWorks?: { title: string; description: string }[];
+  platformStats?: { value: string; label: string }[];
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -58,28 +69,80 @@ export const caseStudies: CaseStudy[] = [
     metric: "3.2×",
     metricLabel: "TAM Expansion",
     industry: "Payments · Fintech · Spain",
+
     challenge:
-      "DaMap had built a strong reconciliation tool but faced a growth ceiling. The product needed to expand from a single-purpose financial reconciliation SaaS into a broader data governance platform capable of serving payment orchestrators, PSPs, and enterprise clients — without disrupting existing customers or revenue.",
+      "DaMap had built a strong automated reconciliation tool but was hitting a growth ceiling. The product worked well for a narrow use case — financial reconciliation — but the market opportunity was broader, and competitors were closing in. The question was whether to go deeper in reconciliation or expand the platform into a more strategic position within the payments data ecosystem.",
+
+    context:
+      "The Spanish payments market is one of the most dynamic in Europe, with a mature orchestration layer, growing PSP competition, and increasing regulatory complexity under PSD2. Payment orchestrators were sitting on a problem: their merchant clients had no visibility into whether settlements from processors matched what was actually landing in their bank accounts. That gap — between what PSPs reported and what banks confirmed — was generating support tickets, eroding merchant trust, and creating a differentiation problem in a commoditizing market. DaMap had the technical foundation to solve it. The strategic challenge was recognizing that the real buyer wasn't just the merchant — it was the orchestrator who needed to offer reconciliation as a value-added service to retain their merchant base.",
+
     approach: [
-      "Conducted comprehensive market analysis of the Spanish payments ecosystem, identifying payment orchestrators and PSPs as primary growth segments with unmet data governance needs.",
-      "Led structured customer discovery across 8+ payment providers to validate the pivot hypothesis and identify the highest-value integration points across PSD2, PISP, and AISP regulatory frameworks.",
-      "Designed the product pivot from reconciliation tool to full data governance platform, defining the architecture, integration model, and go-to-market positioning for orchestrators as a key B2B segment.",
-      "Built the Q1–Q3 2025 ML/GenAI product roadmap using RICE and WSJF prioritisation, achieving 90%+ execution rate across the delivery team.",
-      "Defined the 'Reconciliation as a Service' model for payment orchestrators — enabling merchants to get real-time visibility of bank settlements vs. payment processor liquidations via API integration.",
+      "Conducted a comprehensive market analysis of the Spanish payments ecosystem, mapping the full chain from merchant to payment orchestrator to PSP to bank — identifying where data fragmentation created the most commercial pain.",
+      "Led structured customer discovery across 8+ payment providers (including PSPs, orchestrators, and e-commerce platforms) to validate the pivot hypothesis, using PSD2, PISP, and AISP regulatory requirements as a framework for understanding integration opportunity.",
+      "Identified payment orchestrators as the highest-leverage B2B distribution channel: rather than selling reconciliation to individual merchants, positioning DaMap as infrastructure that orchestrators could offer their entire merchant portfolio — multiplying reach without multiplying sales effort.",
+      "Designed the 'Reconciliation as a Service' model specifically for orchestrators — enabling real-time visibility of sales vs. bank settlement vs. processor liquidation via API, with a dedicated orchestrator environment, configurable matching rules, and white-label data presentation.",
+      "Led the product pivot from reconciliation tool to full data governance platform, defining the new architecture, integration model, and go-to-market narrative. Added capabilities: universal data conciliation, data transformation and enrichment, advanced analytics, data lineage visibility, and governance automation.",
+      "Built and executed the Q1–Q3 2025 ML/GenAI product roadmap using RICE and WSJF prioritisation, achieving 90%+ execution rate. Delivered measurable improvements in customer retention trajectory and ARPU.",
     ],
+
+    // Key metrics grid — shown as visual cards on the case study page
+    keyMetrics: [
+      { value: "3.2×", label: "TAM Expansion", detail: "From single-use reconciliation to full data governance platform" },
+      { value: "16M+", label: "Transactions / Month", detail: "Reconciled monthly across active client deployments" },
+      { value: "95%+", label: "Auto-Reconciliation", detail: "Transactions reconciled automatically without manual intervention" },
+      { value: "1,000 TPS", label: "Processing Speed", detail: "Transactions per second — outperforming generic ERPs and accounting tools" },
+      { value: "8 hrs → 8 min", label: "Process Optimization", detail: "Reconciliation processes that took 8 hours reduced to 8 minutes" },
+      { value: "30K+", label: "Hours Saved / Year", detail: "Manual reconciliation hours eliminated annually across client base" },
+    ],
+
+    // How It Works — the Reconciliation as a Service model explained
+    howItWorks: [
+      {
+        title: "Merchant sales data ingested",
+        description: "Sales transactions, vouchers, and POS data flow from the merchant into DaMap via the orchestrator's existing infrastructure — no direct merchant integration required.",
+      },
+      {
+        title: "Processor liquidations matched",
+        description: "Payment processor settlement files are ingested and matched against merchant sales using DaMap's advanced reconciliation algorithms — identifying matched, pending, and unreconciled items in real time.",
+      },
+      {
+        title: "Bank deposits confirmed",
+        description: "Bank statements and deposit confirmations are cross-referenced against processor liquidations — giving the orchestrator a complete end-to-end view: sales → settlement → bank confirmation.",
+      },
+      {
+        title: "Orchestrator dashboard and alerts",
+        description: "The orchestrator sees their merchants' reconciliation status in a dedicated environment, with configurable rules, discrepancy alerts, and white-label reporting — all delivered via secure API with full encryption.",
+      },
+    ],
+
+    // Platform stats — from DaMap PDFs
+    platformStats: [
+      { value: "300+", label: "Active Users Daily" },
+      { value: "16M+", label: "Transactions / Month" },
+      { value: "95%+", label: "Auto-Reconciliation Rate" },
+      { value: "30K+", label: "Hours Saved / Year" },
+      { value: "8 min", label: "vs. 8-Hour Manual Process" },
+      { value: "1,000 TPS", label: "Processing Throughput" },
+    ],
+
     outcomes: [
       "3.2× expansion of the total addressable market through the data governance platform pivot",
+      "Payment orchestrator segment defined, validated, and positioned as primary B2B growth channel",
+      "95%+ reconciliation automation rate across active client deployments",
+      "16M+ transactions reconciled monthly on the platform",
+      "30,000+ manual reconciliation hours eliminated per year across the client base",
+      "8-hour manual reconciliation processes reduced to 8 minutes through automation",
+      "300+ daily active users on the platform with growing enterprise adoption",
       "Projected 40% improvement in customer retention through roadmap execution",
-      "Payment orchestrator segment validated as a primary growth vector with documented demand",
-      "95%+ reconciliation automation rate demonstrated across active client deployments",
-      "16M+ transactions reconciled monthly across the platform",
     ],
+
     lessons: [
-      "In mature payments markets, reconciliation transparency is a retention and differentiation lever — not just an operational tool.",
-      "Positioning a data product as infrastructure for PSPs and orchestrators unlocks B2B distribution that a direct merchant model cannot reach at the same pace.",
-      "Validation-first roadmapping in regulated markets prevents expensive pivots: customer interviews and regulatory research before engineering investment.",
+      "In mature payments markets, data transparency is a retention and differentiation lever — not just an operational tool. Orchestrators that give merchants visibility into settlement gaps retain accounts that would otherwise migrate on price alone.",
+      "Positioning a data product as infrastructure for orchestrators rather than a tool for merchants changes the unit economics entirely: one orchestrator integration reaches an entire merchant portfolio.",
+      "The most powerful pivots are not technology changes — they are buyer changes. DaMap's technology barely changed. What changed was who we were selling to, why it mattered to them commercially, and how it fit into their existing distribution model.",
     ],
-    tags: ["Payments", "Product Strategy", "Fintech", "Data Governance", "PSD2"],
+
+    tags: ["Payments", "Product Strategy", "Fintech", "Data Governance", "PSD2", "Payment Orchestration"],
     color: "#6366f1",
   },
 
