@@ -67,15 +67,19 @@ export function Footer() {
               Discuss Your Challenge
               <ArrowUpRight size={14} />
             </Link>
-            <p className="text-sm text-[var(--secondary)] mt-3">
-              Or email directly:{" "}
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="text-[var(--primary)] hover:text-[var(--accent)] transition-colors"
-              >
-                {siteConfig.email}
-              </a>
-            </p>
+
+            {/*
+              <p className="text-sm text-[var(--secondary)] mt-3">
+                Or email directly:{" "}
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="text-[var(--primary)] hover:text-[var(--accent)] transition-colors"
+                >
+                  {siteConfig.email}
+                </a>
+              </p>
+            */}
+            
           </div>
         </div>
 
