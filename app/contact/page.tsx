@@ -67,6 +67,7 @@ export default function ContactPage() {
                     </div>
                   </a>
 
+                   {/* 
                   <a
                     href={`mailto:${siteConfig.email}`}
                     className="group flex items-center gap-5 glass glass-hover rounded-2xl p-6"
@@ -81,7 +82,8 @@ export default function ContactPage() {
                       <p className="text-xs text-[var(--secondary)] mt-1">{siteConfig.email}</p>
                     </div>
                   </a>
-
+                  */}
+                  
                   <a
                     href={siteConfig.social.linkedin}
                     target="_blank"
